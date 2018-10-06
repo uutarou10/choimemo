@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './component/App';
 import * as serviceWorker from './serviceWorker';
+import { createBrowserHistory } from 'history';
+
+export const history = createBrowserHistory();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
