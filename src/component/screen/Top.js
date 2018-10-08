@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Top = ({currentUser}) => {
   return (
     <div>
-      { currentUser ? <Redirect to='/list' /> : undefined}
+      { currentUser ? <Redirect to='/memos' /> : undefined}
       <h1>Choimemo</h1>
       <p>ちょっとメモって即共有するメモサービス</p>
       <Link to='/login'>ログイン</Link>

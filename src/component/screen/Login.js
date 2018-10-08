@@ -14,8 +14,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        {/* { currentUser ? <Redirect to='/list' /> : undefined} */}
-        <RedirectIfLoggedInContainer to='list' />
+        <RedirectIfLoggedInContainer to='/memos' />
         <h2>Login</h2>
         <form onSubmit={this.onSubmitHandler}>
           <label>Email</label>

@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router';
 import TopContainer from './container/TopContainer';
 import LoginContainer from './container/LoginContainer';
+import MemosContainer from './container/MemosContainer';
 import fb from 'firebase/app';
 import 'firebase/auth';
 import { setUser, unSetUser } from './module/users';
@@ -33,6 +34,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={TopContainer} />
           <Route exact path='/login' component={LoginContainer} />
+          <Route exact path='/memos' component={MemosContainer} />
         </Switch>
       </ConnectedRouter>
     </Provider>

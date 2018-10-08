@@ -6,7 +6,7 @@ const RedirectIfLoggedIn = ({
   currentUser
 }) => {
   if (currentUser) {
-    return (<Redirect to={to} />)
+    return <Redirect to={to} />;
   } else {
     return <React.Fragment />;
   }
