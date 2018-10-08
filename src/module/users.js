@@ -1,4 +1,4 @@
-import firebase from 'firebase/app';
+import { firebase } from '../App';
 
 const SET_USER = 'user/SET_USER';
 const UNSET_USER = 'user/UNSET_USER';
@@ -21,8 +21,9 @@ export const loginError = (error) => ({
 export const loginWithEmailAndPassword = (email, password) => (
   async (dispatch) => {
     try {
-      await firebase.auth().loginWithEmailAndPassword(email, password);
+      await firebase.auth().signInWithEmailAndPassword(email, password);
     } catch(e) {
+      console.error(e);
       dispatch(loginError(e));
     }
   }
