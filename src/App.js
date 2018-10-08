@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import store, { history } from './store';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
@@ -26,19 +26,17 @@ firebase.auth().onAuthStateChanged(user => {
   }
 })
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <Switch>
-            <Route exact path="/" component={TopContainer} />
-            <Route exact path='/login' component={LoginContainer} />
-          </Switch>
-        </ConnectedRouter>
-      </Provider>
-    );
-  }
+const App = () => {
+  return (
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Switch>
+          <Route exact path="/" component={TopContainer} />
+          <Route exact path='/login' component={LoginContainer} />
+        </Switch>
+      </ConnectedRouter>
+    </Provider>
+  );
 }
 
 export default App;
