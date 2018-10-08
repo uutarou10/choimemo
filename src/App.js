@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router';
 import TopContainer from './container/TopContainer';
+import LoginContainer from './container/LoginContainer';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <ConnectedRouter history={history}>
           <Switch>
             <Route exact path="/" component={TopContainer} />
+            <Route exact path='/login' component={LoginContainer} />
           </Switch>
         </ConnectedRouter>
       </Provider>

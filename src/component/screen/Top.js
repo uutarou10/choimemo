@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Top = ({currentUser}) => {
   return (
@@ -7,6 +8,7 @@ const Top = ({currentUser}) => {
       { currentUser ? <Redirect to='/list' /> : undefined}
       <h1>Choimemo</h1>
       <p>ちょっとメモって即共有するメモサービス</p>
+      <Link to='/login'>ログイン</Link>
 
       <h2>Features</h2>
       <ul>
