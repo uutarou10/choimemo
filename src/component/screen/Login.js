@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
+import RedirectIfLoggedInContainer from '../../container/RedirectIfLoggedInContainer';
 
 class Login extends Component {
   constructor(props) {
@@ -12,11 +12,10 @@ class Login extends Component {
   }
 
   render() {
-    const { currentUser } = this.props;
-
     return (
       <div>
-        { currentUser ? <Redirect to='/list' /> : undefined}
+        {/* { currentUser ? <Redirect to='/list' /> : undefined} */}
+        <RedirectIfLoggedInContainer to='list' />
         <h2>Login</h2>
         <form onSubmit={this.onSubmitHandler}>
           <label>Email</label>
