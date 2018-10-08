@@ -29,7 +29,7 @@ export const loginWithEmailAndPassword = (email, password) => (
 );
   
 const defaultState = {
-  user: null,
+  currentUser: null,
   error: null
 };
 
@@ -38,13 +38,13 @@ export default (state = defaultState, action) => {
     case SET_USER:
       return {
         ...state,
-        user: action.payload
+        currentUser: action.payload
       };
 
     case UNSET_USER:
       return {
         ...state,
-        user: null
+        currentUser: null
       };
 
     case LOGIN_ERROR:

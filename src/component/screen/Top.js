@@ -1,10 +1,12 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 
-const Top = () => {
+const Top = ({currentUser}) => {
   return (
     <div>
+      { currentUser ? <Redirect to='/list' /> : undefined}
       <h1>Choimemo</h1>
-      <p>ちょっとだけMarkdownでメモる</p>
+      <p>ちょっとメモって即共有するメモサービス</p>
 
       <h2>Features</h2>
       <ul>
