@@ -3,6 +3,7 @@ import { auth } from '../util/firebase'
 const SET_USER = 'user/SET_USER';
 const UNSET_USER = 'user/UNSET_USER';
 const LOGIN_ERROR = 'user/LOGIN_ERROR';
+const FETCHED = 'user/FETCHED';
 
 export const setUser = (user) => ({
   type: SET_USER,
@@ -18,6 +19,10 @@ export const loginError = (error) => ({
   payload: error
 });
 
+export const fetched = () => ({
+  type: FETCHED
+});
+
 export const loginWithEmailAndPassword = (email, password) => (
   async (dispatch) => {
     try {
@@ -31,7 +36,8 @@ export const loginWithEmailAndPassword = (email, password) => (
   
 const defaultState = {
   currentUser: null,
-  error: null
+  error: null,
+  isFetched: false
 };
 
 export default (state = defaultState, action) => {
@@ -52,6 +58,12 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         error: action.payload
+      };
+
+    case FETCHED:
+      return {
+        ...state,
+        isFetched: true
       };
 
     default:

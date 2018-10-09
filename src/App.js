@@ -6,8 +6,9 @@ import { Route, Switch } from 'react-router';
 import TopContainer from './container/TopContainer';
 import LoginContainer from './container/LoginContainer';
 import MemosContainer from './container/MemosContainer';
-import { setUser, unSetUser } from './module/users';
+import { setUser, unSetUser, fetched } from './module/users';
 import { auth } from './util/firebase';
+import RenderBlock from './container/RenderBlockContainer';
 
 auth.onAuthStateChanged(user => {
   if (user) {
@@ -15,18 +16,23 @@ auth.onAuthStateChanged(user => {
   } else {
     store.dispatch(unSetUser());
   }
+  store.dispatch(fetched());
 })
 
 const App = () => {
   return (
     <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <Switch>
-          <Route exact path="/" component={TopContainer} />
-          <Route exact path='/login' component={LoginContainer} />
-          <Route exact path='/memos' component={MemosContainer} />
-        </Switch>
-      </ConnectedRouter>
+      <RenderBlock
+        blocking={<p>Loading...</p>}
+      >
+        <ConnectedRouter history={history}>
+          <Switch>
+            <Route exact path="/" component={TopContainer} />
+            <Route exact path='/login' component={LoginContainer} />
+            <Route exact path='/memos' component={MemosContainer} />
+          </Switch>
+        </ConnectedRouter>
+      </RenderBlock>
     </Provider>
   );
 }

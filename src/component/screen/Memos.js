@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Memos = () => {
+const Memos = ({ currentUser, createMemo }) => {
   return (
     <div>
       <h2>Your memos</h2>
